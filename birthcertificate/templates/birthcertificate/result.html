@@ -1,5 +1,22 @@
 {% extends "birthcertificate/layout.html" %}
-
+<h1>{{ age }}</h1>
 {% block body %}
-    <h1>{{ age*2 }}</h1>
+    <table>
+      <thead>
+        <th>Planet</th>
+        <th>Age</th>
+      </thead>
+      <tbody>
+        <tr><td>Sun</td><td>{{ Sun }}</td></tr>
+        <tr><td>Mercury</td><td>{{ Mercury }}</td></tr>
+        <tr><td>Venus</td><td>{{ Venus }}</td></tr>
+        <tr><td>Earth</td><td>{{ Earth }}</td></tr>
+        <tr><td>Mars</td><td>{{ Mars }}</td></tr>
+        <tr><td>Jupiter</td><td>{{ Jupiter }}</td></tr>
+        <tr><td>Satturn</td><td>{{ Satturn }}</td></tr>
+        <tr><td>Uranus</td><td>{{ Uranus }}</td></tr>
+        <tr><td>Neptun</td><td>{{ Neptun }}</td></tr>
+        <tr><td>Pluto</td><td>{{ Pluto }}</td></tr>
+      </tbody>
+    </table>
 {% endblock %}
