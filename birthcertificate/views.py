@@ -24,7 +24,7 @@ def index(request):
             age = round(total_age, 1)
 
 
-            return render(request, 'result.html', {'age': age})
+            return render(request, 'birthcertificate/result.html', {'age': age})
     else:
         form = BirthdayForm()
     return render(request, 'birthcertificate/index.html', {'form': form})
