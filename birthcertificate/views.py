@@ -3,9 +3,9 @@ import jdatetime
 from django import forms
 
 class BirthdayForm(forms.Form):
-    year = forms.IntegerField(label='Birth Year')
-    month = forms.IntegerField(label='Birth Month')
-    day = forms.IntegerField(label='Birth Day')
+    year = forms.IntegerField(label='Birth Year',widget= forms.TextInput(attrs={'placeholder':'e.g. 1382'}))
+    month = forms.IntegerField(label='Birth Month',widget= forms.TextInput(attrs={'placeholder':'e.g. 8'}))
+    day = forms.IntegerField(label='Birth Day',widget= forms.TextInput(attrs={'placeholder':'e.g. 7'}))
 
 # Create your views here.
 now_year = jdatetime.datetime.now().year
@@ -27,15 +27,15 @@ def index(request):
 
             return render(request, 'birthcertificate/result.html', {
                 'Sun': 0,
-                "Mercury" : age*365.25/88,
-                "Venus" : age*365.25/225,
+                "Mercury" : round(age*365.25/88,1),
+                "Venus" : round(age*365.25/225,1),
                 'Earth': age,
-                "Mars" : age*365.25/(365.25+321.73),
-                "Jupiter" : age*365.25/(11*365.25+313.839),
-                "Satturn" : age*365.25/(29*365.25+167),
-                "Uranus" : age*365.25/(84*365.25+4),
-                "Neptun" : age*365.25/(164*365.25+288),
-                "Pluto" : age*365.25/(247*365.25+248)
+                "Mars" : round(age*365.25/(365.25+321.73),1),
+                "Jupiter" : round(age*365.25/(11*365.25+313.839),1),
+                "Satturn" : round(age*365.25/(29*365.25+167),1),
+                "Uranus" : round(age*365.25/(84*365.25+4),1),
+                "Neptun" : round(age*365.25/(164*365.25+288),1),
+                "Pluto" : round(age*365.25/(247*365.25+248),1)
                 })
     else:
         form = BirthdayForm()
